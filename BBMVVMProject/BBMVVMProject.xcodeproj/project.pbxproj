@@ -7,8 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		A99316041E359CB700F4A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99315FD1E359CB700F4A4C7 /* AppDelegate.swift */; };
+		A95BD1A11E35E2000070AE10 /* BBNavigationControllerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */; };
+		A95BD1A31E35E2220070AE10 /* BBNavigationEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */; };
 		A99316051E359CB700F4A4C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99315FE1E359CB700F4A4C7 /* Assets.xcassets */; };
+		A99316141E35A89F00F4A4C7 /* BBRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99316131E35A89F00F4A4C7 /* BBRouter.swift */; };
+		A99316181E35A98000F4A4C7 /* BBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99316171E35A98000F4A4C7 /* BBViewModel.swift */; };
+		A99316221E35DD4300F4A4C7 /* BBBaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99316211E35DD4300F4A4C7 /* BBBaseViewController.swift */; };
+		A99316231E35DF6500F4A4C7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99315FD1E359CB700F4A4C7 /* AppDelegate.swift */; };
 		DA4F523168AD8AE522437745 /* Pods_BBMVVMProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F067242819B4B00D34E1451 /* Pods_BBMVVMProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -16,10 +21,15 @@
 		143B6FABC7D67F488D901508 /* Pods-BBMVVMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBMVVMProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBMVVMProject/Pods-BBMVVMProject.release.xcconfig"; sourceTree = "<group>"; };
 		5F067242819B4B00D34E1451 /* Pods_BBMVVMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBMVVMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873C99B7B08F23D66362C77A /* Pods-BBMVVMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBMVVMProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBMVVMProject/Pods-BBMVVMProject.debug.xcconfig"; sourceTree = "<group>"; };
+		A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationControllerStack.swift; sourceTree = "<group>"; };
+		A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationEventBus.swift; sourceTree = "<group>"; };
 		A99315E71E359A7300F4A4C7 /* BBMVVMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBMVVMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99315FD1E359CB700F4A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A99315FE1E359CB700F4A4C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A993160A1E359DE100F4A4C7 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A99316131E35A89F00F4A4C7 /* BBRouter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBRouter.swift; sourceTree = "<group>"; };
+		A99316171E35A98000F4A4C7 /* BBViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBViewModel.swift; sourceTree = "<group>"; };
+		A99316211E35DD4300F4A4C7 /* BBBaseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBBaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,26 +74,29 @@
 		A99315E91E359A7300F4A4C7 /* BBMVVMProject */ = {
 			isa = PBXGroup;
 			children = (
-				A99315FC1E359CB700F4A4C7 /* SupportingFiles */,
+				A99316111E35A53C00F4A4C7 /* Protocols */,
+				A99316121E35A53C00F4A4C7 /* Router */,
 				A99316021E359CB700F4A4C7 /* ViewModel */,
 				A99316031E359CB700F4A4C7 /* View */,
+				A99315FC1E359CB700F4A4C7 /* Supporting Files */,
 			);
 			path = BBMVVMProject;
 			sourceTree = "<group>";
 		};
-		A99315FC1E359CB700F4A4C7 /* SupportingFiles */ = {
+		A99315FC1E359CB700F4A4C7 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
 				A99315FD1E359CB700F4A4C7 /* AppDelegate.swift */,
 				A99315FE1E359CB700F4A4C7 /* Assets.xcassets */,
 				A993160A1E359DE100F4A4C7 /* Info.plist */,
 			);
-			path = SupportingFiles;
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		A99316021E359CB700F4A4C7 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				A99316171E35A98000F4A4C7 /* BBViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -100,6 +113,7 @@
 		A993160C1E35A1ED00F4A4C7 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				A99316201E35DD3000F4A4C7 /* Base Classes */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -109,6 +123,31 @@
 			children = (
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		A99316111E35A53C00F4A4C7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		A99316121E35A53C00F4A4C7 /* Router */ = {
+			isa = PBXGroup;
+			children = (
+				A99316131E35A89F00F4A4C7 /* BBRouter.swift */,
+				A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */,
+				A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */,
+			);
+			path = Router;
+			sourceTree = "<group>";
+		};
+		A99316201E35DD3000F4A4C7 /* Base Classes */ = {
+			isa = PBXGroup;
+			children = (
+				A99316211E35DD4300F4A4C7 /* BBBaseViewController.swift */,
+			);
+			path = "Base Classes";
 			sourceTree = "<group>";
 		};
 		CAAADB60635E7741E72D0131 /* Frameworks */ = {
@@ -164,6 +203,7 @@
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
 			knownRegions = (
+				en,
 			);
 			mainGroup = A99315DE1E359A7300F4A4C7;
 			productRefGroup = A99315E81E359A7300F4A4C7 /* Products */;
@@ -239,7 +279,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A99316041E359CB700F4A4C7 /* AppDelegate.swift in Sources */,
+				A99316231E35DF6500F4A4C7 /* AppDelegate.swift in Sources */,
+				A99316181E35A98000F4A4C7 /* BBViewModel.swift in Sources */,
+				A95BD1A11E35E2000070AE10 /* BBNavigationControllerStack.swift in Sources */,
+				A95BD1A31E35E2220070AE10 /* BBNavigationEventBus.swift in Sources */,
+				A99316141E35A89F00F4A4C7 /* BBRouter.swift in Sources */,
+				A99316221E35DD4300F4A4C7 /* BBBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -347,11 +392,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 2C76VL32CX;
-				INFOPLIST_FILE = "$(SRCROOT)/BBMVVMProject/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/BBMVVMProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hahn-Chan.BBMVVMProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
 		};
@@ -363,11 +408,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
 				DEVELOPMENT_TEAM = 2C76VL32CX;
-				INFOPLIST_FILE = "$(SRCROOT)/BBMVVMProject/SupportingFiles/Info.plist";
+				INFOPLIST_FILE = "$(SRCROOT)/BBMVVMProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hahn-Chan.BBMVVMProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
+				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;
 		};
