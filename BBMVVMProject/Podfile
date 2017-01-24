@@ -7,6 +7,10 @@ target 'BBMVVMProject' do
 
   # Pods for BBMVVMProject
   
-  pod 'ReactiveCocoa', '~> 5.0.0'
+  pod 'ReactiveCocoa', '5.0.0'
+  pod 'SnapKit', '3.1.2'
+  pod 'Moya', '8.0.1'
+  pod 'Moya/ReactiveCocoa'
+  pod 'Moya/ReactiveSwift'
 
 end
