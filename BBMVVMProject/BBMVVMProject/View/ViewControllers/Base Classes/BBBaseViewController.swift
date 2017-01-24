@@ -15,6 +15,11 @@ class BBBaseViewController: UIViewController {
     required init(viewModel: BBViewModel) {
         self.viewModel = viewModel
         super.init(nibName: nil, bundle: nil)
+        reactive.trigger(for: #selector(viewDidLoad)).observeValues { [weak self] in
+            if let strongSelf = self {
+                strongSelf.bindViewModel()
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -28,11 +33,21 @@ class BBBaseViewController: UIViewController {
         
         view.backgroundColor = UIColor.red
         
-        bindViewModel()
+        let button: UIButton = UIButton(type: .system)
+        button.frame = CGRect(x: 100, y: 100, width: 200, height: 50)
+        button.backgroundColor = UIColor.blue
+        button.setTitle("bbbbb", for: .normal)
+        view.addSubview(button)
+        button.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
+            if let strongSelf = self {
+                strongSelf.viewModel.navigationBus.push(viewModel: BBViewModel(withParams: [:]), animated: true)
+            }
+        }
     }
     
     func bindViewModel() {
         //binding
+        navigationItem.title = viewModel.navigationTitle
     }
 
 }

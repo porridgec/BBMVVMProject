@@ -12,7 +12,7 @@ class BBRouter {
     
     static let sharedRouter: BBRouter = BBRouter()
     private let viewModelMappingDict: [String: AnyClass] =
-        ["BBViewModel": BBBaseViewController.classForCoder()]
+        ["BBViewModel" : BBBaseViewController.classForCoder()]
     
     private init(){}
     

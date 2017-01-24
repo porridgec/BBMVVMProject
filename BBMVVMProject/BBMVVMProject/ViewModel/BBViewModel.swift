@@ -9,5 +9,18 @@
 import UIKit
 
 class BBViewModel: NSObject {
+    
+    let navigationBus: BBNavigationEventBus = BBNavigationEventBus.sharedEventBus
+    let params: [String: AnyObject]!
+    let navigationTitle: String!
+    
+    init(withParams: [String: AnyObject]) {
+        params = withParams
+        navigationTitle = (params["navigationTitle"] as? String) ?? ""
+        super.init()
+        initialize()
+    }
+    
+    func initialize() {} //override this function in subclasses
 
 }
