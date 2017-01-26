@@ -7,8 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A91302B31E372D5A006599D9 /* BBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91302B21E372D5A006599D9 /* BBNetworkManager.swift */; };
 		A95BD1A11E35E2000070AE10 /* BBNavigationControllerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */; };
 		A95BD1A31E35E2220070AE10 /* BBNavigationEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */; };
+		A96CDB111E37322E009714A7 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = A96CDB101E37322E009714A7 /* sampleData.json */; };
 		A99316051E359CB700F4A4C7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A99315FE1E359CB700F4A4C7 /* Assets.xcassets */; };
 		A99316141E35A89F00F4A4C7 /* BBRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99316131E35A89F00F4A4C7 /* BBRouter.swift */; };
 		A99316181E35A98000F4A4C7 /* BBViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99316171E35A98000F4A4C7 /* BBViewModel.swift */; };
@@ -21,8 +23,10 @@
 		143B6FABC7D67F488D901508 /* Pods-BBMVVMProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBMVVMProject.release.xcconfig"; path = "Pods/Target Support Files/Pods-BBMVVMProject/Pods-BBMVVMProject.release.xcconfig"; sourceTree = "<group>"; };
 		5F067242819B4B00D34E1451 /* Pods_BBMVVMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBMVVMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873C99B7B08F23D66362C77A /* Pods-BBMVVMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBMVVMProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBMVVMProject/Pods-BBMVVMProject.debug.xcconfig"; sourceTree = "<group>"; };
+		A91302B21E372D5A006599D9 /* BBNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNetworkManager.swift; sourceTree = "<group>"; };
 		A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationControllerStack.swift; sourceTree = "<group>"; };
 		A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationEventBus.swift; sourceTree = "<group>"; };
+		A96CDB101E37322E009714A7 /* sampleData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleData.json; sourceTree = "<group>"; };
 		A99315E71E359A7300F4A4C7 /* BBMVVMProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BBMVVMProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99315FD1E359CB700F4A4C7 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A99315FE1E359CB700F4A4C7 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -53,6 +57,22 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		A91302B01E372CE6006599D9 /* Manager */ = {
+			isa = PBXGroup;
+			children = (
+				A96CDB101E37322E009714A7 /* sampleData.json */,
+				A91302B21E372D5A006599D9 /* BBNetworkManager.swift */,
+			);
+			path = Manager;
+			sourceTree = "<group>";
+		};
+		A91302B11E372CFA006599D9 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		A99315DE1E359A7300F4A4C7 = {
 			isa = PBXGroup;
 			children = (
@@ -74,10 +94,11 @@
 		A99315E91E359A7300F4A4C7 /* BBMVVMProject */ = {
 			isa = PBXGroup;
 			children = (
-				A99316111E35A53C00F4A4C7 /* Protocols */,
-				A99316121E35A53C00F4A4C7 /* Router */,
-				A99316021E359CB700F4A4C7 /* ViewModel */,
+				A91302B11E372CFA006599D9 /* Model */,
 				A99316031E359CB700F4A4C7 /* View */,
+				A99316021E359CB700F4A4C7 /* ViewModel */,
+				A91302B01E372CE6006599D9 /* Manager */,
+				A99316121E35A53C00F4A4C7 /* Router */,
 				A99315FC1E359CB700F4A4C7 /* Supporting Files */,
 			);
 			path = BBMVVMProject;
@@ -123,13 +144,6 @@
 			children = (
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		A99316111E35A53C00F4A4C7 /* Protocols */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Protocols;
 			sourceTree = "<group>";
 		};
 		A99316121E35A53C00F4A4C7 /* Router */ = {
@@ -221,6 +235,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99316051E359CB700F4A4C7 /* Assets.xcassets in Resources */,
+				A96CDB111E37322E009714A7 /* sampleData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -281,6 +296,7 @@
 			files = (
 				A99316231E35DF6500F4A4C7 /* AppDelegate.swift in Sources */,
 				A99316181E35A98000F4A4C7 /* BBViewModel.swift in Sources */,
+				A91302B31E372D5A006599D9 /* BBNetworkManager.swift in Sources */,
 				A95BD1A11E35E2000070AE10 /* BBNavigationControllerStack.swift in Sources */,
 				A95BD1A31E35E2220070AE10 /* BBNavigationEventBus.swift in Sources */,
 				A99316141E35A89F00F4A4C7 /* BBRouter.swift in Sources */,

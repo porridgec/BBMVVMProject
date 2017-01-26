@@ -1,0 +1,38 @@
+{
+	"ret": 1,
+	"code": 0,
+	"info": "",
+	"data": [{
+		"album_name": "Appetite for Destruction",
+		"filesize": 4380,
+		"hash": "40bc1de3868f06a05b27b13387a5b36f",
+		"singername": "Guns N' Roses",
+		"songname": "Welcome To The Jungle"
+	}, {
+		"album_name": "Silver Bullet",
+		"filesize": 5622,
+		"hash": "2890fd707d302b33dcb2fe6544b3b97b",
+		"singername": "Guns N'Roses",
+		"songname": "Welcome To The Jungle"
+	}, {
+		"album_name": "The Devil Knows My Name",
+		"filesize": 4304,
+		"hash": "aab162a31b5205fa1638d795e188e5bf",
+		"singername": "john 5",
+		"songname": "Welcome to the Jungle"
+	}, {
+		"album_name": "",
+		"filesize": 4428,
+		"hash": "faa91d02795e39bebd64a6c4c3e9d566",
+		"singername": "Guns N' Roses",
+		"songname": "Welcome To The Jungle"
+	}, {
+		"album_name": "Live Era '87-'93",
+		"filesize": 4969,
+		"hash": "b39060e6c8ee140512a734a7657e5da6",
+		"singername": "Guns N' Roses",
+		"songname": "Welcome To The Jungle"
+	}],
+	"token": "",
+	"debug": 1
+}

@@ -7,6 +7,10 @@
 //
 
 import UIKit
+import Moya
+import ReactiveCocoa
+import ReactiveSwift
+import Result
 
 class BBBaseViewController: UIViewController {
     
@@ -40,7 +44,45 @@ class BBBaseViewController: UIViewController {
         view.addSubview(button)
         button.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
             if let strongSelf = self {
-                strongSelf.viewModel.navigationBus.push(viewModel: BBViewModel(withParams: [:]), animated: true)
+                    strongSelf.viewModel.coldSignal.start({ (event) in
+                        switch event {
+                        case let .value(value):
+                            print("cold signal \(value) observed")
+                        case let .failed(error):
+                            print("Failed: \(error)")
+                        case .completed:
+                            print("Completed")
+                        case .interrupted:
+                            print("Interrupted")
+                        }
+                    })
+            }
+        }
+        
+        let bbutton: UIButton = UIButton(type: .system)
+        bbutton.frame = CGRect(x: 100, y: 300, width: 200, height: 50)
+        bbutton.backgroundColor = UIColor.purple
+        bbutton.setTitle("bbbbb", for: .normal)
+        view.addSubview(bbutton)
+        bbutton.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
+            if let strongSelf = self {
+                strongSelf.viewModel.hotSignal.observeValues({ (value) in
+                    print("hot signal \(value) observed")
+                })
+                strongSelf.viewModel.sendHotSignal()
+            }
+        }
+        
+        let sbutton: UIButton = UIButton(type: .system)
+        sbutton.frame = CGRect(x: 100, y: 500, width: 200, height: 50)
+        sbutton.backgroundColor = UIColor.yellow
+        sbutton.setTitle("bbbbb", for: .normal)
+        view.addSubview(sbutton)
+        sbutton.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
+            if let strongSelf = self {
+                strongSelf.viewModel.search().start(Observer<String, NoError>.init(value: { (value) in
+                    print(value)
+                }, failed: nil, completed: nil, interrupted: nil))
             }
         }
     }
