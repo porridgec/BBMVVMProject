@@ -59,7 +59,10 @@ enum BBNetworkApiType: TargetType {
         }
     }
     var parameterEncoding: ParameterEncoding {
-        return URLEncoding.default
+        switch self {
+        case .searchMusic(_):
+            return URLEncoding.default
+        }
     }
     var needAccessToken: Bool {
         switch self {
@@ -70,6 +73,7 @@ enum BBNetworkApiType: TargetType {
 }
 
 struct BBNetworkManager {
+    
     static let provider = MoyaProvider<BBNetworkApiType>(endpointClosure: { (target: BBNetworkApiType) -> Endpoint<BBNetworkApiType> in
         let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
         if target.needAccessToken == true {
@@ -78,14 +82,6 @@ struct BBNetworkManager {
             return defaultEndpoint
         }
     })
-    
-    static func searchMusic(keyword: String) -> SignalProducer<String, MoyaError> {
-        return request(target: .searchMusic(keyword: keyword)).flatMap(.latest, transform: { (data: JSON) -> SignalProducer<String, MoyaError> in
-            return SignalProducer<String, MoyaError>.init({ (observer, disposable) in
-                observer.send(value: data.rawString()!)
-            })
-        })
-    }
     
     static func request(target: BBNetworkApiType) -> SignalProducer<JSON, MoyaError> {
         return SignalProducer<JSON, MoyaError>.init({ (observer, disposable) in
@@ -108,5 +104,15 @@ struct BBNetworkManager {
             })
         })
     }
+    
+    static func searchMusic(keyword: String) -> SignalProducer<String, MoyaError> {
+        return request(target: .searchMusic(keyword: keyword)).flatMap(.latest, transform: { (data: JSON) -> SignalProducer<String, MoyaError> in
+            return SignalProducer<String, MoyaError>.init({ (observer, disposable) in
+                observer.send(value: data.rawString()!)
+            })
+        })
+    }
+    
+    
 }
 

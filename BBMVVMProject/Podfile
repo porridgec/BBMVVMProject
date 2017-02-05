@@ -14,5 +14,6 @@ target 'BBMVVMProject' do
   pod 'SwiftyJSON', '3.1.4'
   pod 'ObjectMapper', '2.2.2'
   pod 'Kingfisher', '3.3.2'
+  pod 'CYLTabBarController', '1.10.0'
 
 end

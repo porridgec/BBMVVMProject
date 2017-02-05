@@ -8,6 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		A91302B31E372D5A006599D9 /* BBNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A91302B21E372D5A006599D9 /* BBNetworkManager.swift */; };
+		A93015A71E47108E002C7569 /* BBTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93015A61E47108E002C7569 /* BBTabBarViewController.swift */; };
+		A93015A91E4710B1002C7569 /* BBTabBarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93015A81E4710B1002C7569 /* BBTabBarViewModel.swift */; };
+		A93015B31E47226E002C7569 /* BBDemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93015B21E47226E002C7569 /* BBDemoViewController.swift */; };
+		A93015B51E47227D002C7569 /* BBDemoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A93015B41E47227D002C7569 /* BBDemoViewModel.swift */; };
 		A95BD1A11E35E2000070AE10 /* BBNavigationControllerStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */; };
 		A95BD1A31E35E2220070AE10 /* BBNavigationEventBus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */; };
 		A96CDB111E37322E009714A7 /* sampleData.json in Resources */ = {isa = PBXBuildFile; fileRef = A96CDB101E37322E009714A7 /* sampleData.json */; };
@@ -24,6 +28,11 @@
 		5F067242819B4B00D34E1451 /* Pods_BBMVVMProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BBMVVMProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		873C99B7B08F23D66362C77A /* Pods-BBMVVMProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BBMVVMProject.debug.xcconfig"; path = "Pods/Target Support Files/Pods-BBMVVMProject/Pods-BBMVVMProject.debug.xcconfig"; sourceTree = "<group>"; };
 		A91302B21E372D5A006599D9 /* BBNetworkManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNetworkManager.swift; sourceTree = "<group>"; };
+		A93015A61E47108E002C7569 /* BBTabBarViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTabBarViewController.swift; sourceTree = "<group>"; };
+		A93015A81E4710B1002C7569 /* BBTabBarViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBTabBarViewModel.swift; sourceTree = "<group>"; };
+		A93015AE1E471A6E002C7569 /* BBMVVMProject-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "BBMVVMProject-Bridging-Header.h"; sourceTree = "<group>"; };
+		A93015B21E47226E002C7569 /* BBDemoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDemoViewController.swift; sourceTree = "<group>"; };
+		A93015B41E47227D002C7569 /* BBDemoViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBDemoViewModel.swift; sourceTree = "<group>"; };
 		A95BD1A01E35E2000070AE10 /* BBNavigationControllerStack.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationControllerStack.swift; sourceTree = "<group>"; };
 		A95BD1A21E35E2220070AE10 /* BBNavigationEventBus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BBNavigationEventBus.swift; sourceTree = "<group>"; };
 		A96CDB101E37322E009714A7 /* sampleData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = sampleData.json; sourceTree = "<group>"; };
@@ -110,6 +119,7 @@
 				A99315FD1E359CB700F4A4C7 /* AppDelegate.swift */,
 				A99315FE1E359CB700F4A4C7 /* Assets.xcassets */,
 				A993160A1E359DE100F4A4C7 /* Info.plist */,
+				A93015AE1E471A6E002C7569 /* BBMVVMProject-Bridging-Header.h */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -118,6 +128,8 @@
 			isa = PBXGroup;
 			children = (
 				A99316171E35A98000F4A4C7 /* BBViewModel.swift */,
+				A93015A81E4710B1002C7569 /* BBTabBarViewModel.swift */,
+				A93015B41E47227D002C7569 /* BBDemoViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -135,6 +147,7 @@
 			isa = PBXGroup;
 			children = (
 				A99316201E35DD3000F4A4C7 /* Base Classes */,
+				A93015B21E47226E002C7569 /* BBDemoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -160,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				A99316211E35DD4300F4A4C7 /* BBBaseViewController.swift */,
+				A93015A61E47108E002C7569 /* BBTabBarViewController.swift */,
 			);
 			path = "Base Classes";
 			sourceTree = "<group>";
@@ -208,6 +222,7 @@
 					A99315E61E359A7300F4A4C7 = {
 						CreatedOnToolsVersion = 8.1;
 						DevelopmentTeam = 2C76VL32CX;
+						LastSwiftMigration = 0810;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -294,12 +309,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A93015B51E47227D002C7569 /* BBDemoViewModel.swift in Sources */,
 				A99316231E35DF6500F4A4C7 /* AppDelegate.swift in Sources */,
 				A99316181E35A98000F4A4C7 /* BBViewModel.swift in Sources */,
+				A93015A91E4710B1002C7569 /* BBTabBarViewModel.swift in Sources */,
+				A93015B31E47226E002C7569 /* BBDemoViewController.swift in Sources */,
 				A91302B31E372D5A006599D9 /* BBNetworkManager.swift in Sources */,
 				A95BD1A11E35E2000070AE10 /* BBNavigationControllerStack.swift in Sources */,
 				A95BD1A31E35E2220070AE10 /* BBNavigationEventBus.swift in Sources */,
 				A99316141E35A89F00F4A4C7 /* BBRouter.swift in Sources */,
+				A93015A71E47108E002C7569 /* BBTabBarViewController.swift in Sources */,
 				A99316221E35DD4300F4A4C7 /* BBBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -407,11 +426,14 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2C76VL32CX;
 				INFOPLIST_FILE = "$(SRCROOT)/BBMVVMProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hahn-Chan.BBMVVMProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BBMVVMProject/Supporting Files/BBMVVMProject-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Debug;
@@ -423,11 +445,13 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 2C76VL32CX;
 				INFOPLIST_FILE = "$(SRCROOT)/BBMVVMProject/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "Hahn-Chan.BBMVVMProject";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "BBMVVMProject/Supporting Files/BBMVVMProject-Bridging-Header.h";
 				SWIFT_VERSION = 3.0.1;
 			};
 			name = Release;

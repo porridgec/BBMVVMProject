@@ -12,10 +12,16 @@ import ReactiveSwift
 import Result
 import Moya
 
+enum BBViewModelParam: String {
+    case navigationTitle
+    case shouldHideNavigationBar
+    case shouldHideStatusBar
+}
+
 class BBViewModel: NSObject {
     
     let navigationBus: BBNavigationEventBus = BBNavigationEventBus.sharedEventBus
-    let params: [String: AnyObject]
+    let params: [String: Any]
     var navigationTitle: String
     var shouldHideNavigationBar: Bool
     var shouldHideStatusBar: Bool
@@ -24,11 +30,21 @@ class BBViewModel: NSObject {
     var coldSignal: SignalProducer<Int, NoError>!
     var (hotSignal, hotSignalObserver) = Signal<Int, NoError>.pipe()
     
-    init(withParams: [String: AnyObject]) {
+    override init() {
+        params = [:]
+        navigationTitle = ""
+        shouldHideNavigationBar = false
+        shouldHideStatusBar = false
+        
+        super.init()
+        initialize()
+    }
+    
+    init(_ withParams: [String: Any]) {
         params = withParams
-        navigationTitle = (params["navigationTitle"] as? String) ?? ""
-        shouldHideNavigationBar = (params["shouldHideNavigationBar"] as? Bool) ?? false
-        shouldHideStatusBar = (params["shouldHideNavigationBar"] as? Bool) ?? false
+        navigationTitle = (params[BBViewModelParam.navigationTitle.rawValue] as? String) ?? ""
+        shouldHideNavigationBar = (params[BBViewModelParam.shouldHideNavigationBar.rawValue] as? Bool) ?? false
+        shouldHideStatusBar = (params[BBViewModelParam.shouldHideStatusBar.rawValue] as? Bool) ?? false
         
         super.init()
         initialize()
@@ -47,6 +63,10 @@ class BBViewModel: NSObject {
     
     func search() -> SignalProducer<String, MoyaError> {
         return BBNetworkManager.searchMusic(keyword: "numb")
+    }
+    
+    func go() {
+        navigationBus.push(viewModel: BBViewModel([BBViewModelParam.navigationTitle.rawValue : "aa"]), animated: true)
     }
     
 

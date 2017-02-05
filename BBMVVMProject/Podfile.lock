@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.2.0)
+  - CYLTabBarController (1.10.0)
   - Kingfisher (3.3.2)
   - Moya (8.0.1):
     - Moya/Core (= 8.0.1)
@@ -19,6 +20,7 @@ PODS:
   - SwiftyJSON (3.1.4)
 
 DEPENDENCIES:
+  - CYLTabBarController (= 1.10.0)
   - Kingfisher (= 3.3.2)
   - Moya (= 8.0.1)
   - Moya/ReactiveSwift
@@ -29,6 +31,7 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Alamofire: aa2e09d871c9160ac53c90e83c68064a94e3dfbe
+  CYLTabBarController: 2de9a4c26f50d33574398becf8e7b0aaed794240
   Kingfisher: 8e60094454aeb4746eb588eb57f794d891c6ea88
   Moya: f2e10a04fcb27fec154cb2afa4e536e8b46dac04
   ObjectMapper: 9e385c2295bcc4e16eabbcfc85db801442bba545
@@ -38,6 +41,6 @@ SPEC CHECKSUMS:
   SnapKit: 12b24f569cb7c143acc9c22b9d91b23e7b1c84a2
   SwiftyJSON: c2842d878f95482ffceec5709abc3d05680c0220
 
-PODFILE CHECKSUM: daf02c3d043028add8656eb7650ae46c3c7e1bb8
+PODFILE CHECKSUM: 6c5b319f1e10ff2eda23b83a880fc5b66dd8c60c
 
 COCOAPODS: 1.1.1

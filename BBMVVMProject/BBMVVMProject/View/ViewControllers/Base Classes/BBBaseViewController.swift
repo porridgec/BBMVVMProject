@@ -32,8 +32,6 @@ class BBBaseViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
         
         view.backgroundColor = UIColor.red
         
@@ -66,7 +64,8 @@ class BBBaseViewController: UIViewController {
         view.addSubview(bbutton)
         bbutton.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
             if let strongSelf = self {
-                strongSelf.viewModel.sendHotSignal()
+//                strongSelf.viewModel.sendHotSignal()
+                strongSelf.viewModel.go()
             }
         }
         viewModel.hotSignal.observeValues({ (value) in

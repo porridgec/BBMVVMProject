@@ -21,7 +21,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.makeKeyAndVisible()
         
-        navigationEventBus.reset(rootViewModel: BBViewModel(withParams: ["navigationTitle" : "BBBBB" as AnyObject]))
+        navigationEventBus.reset(rootViewModel: BBTabBarViewModel())
         return true
     }
 

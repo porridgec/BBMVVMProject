@@ -21,14 +21,14 @@ class BBNavigationControllerStack {
         registerNavigationHooks()
     }
     
-    private func push(navigationController: UINavigationController) {
+    func push(navigationController: UINavigationController) {
         if !navigationControllers.contains(navigationController) {
             navigationControllers.append(navigationController)
         }
     }
     
-    private func popNavigationController() -> UINavigationController {
-        return navigationControllers.removeLast()
+    func popNavigationController() -> UINavigationController? {
+        return navigationControllers.count > 0 ? navigationControllers.removeLast() : nil
     }
     
     private func topNavigationController() -> UINavigationController {
@@ -93,10 +93,13 @@ class BBNavigationControllerStack {
             .signal(for: #selector(navigationEventBus.reset(rootViewModel:)))
             .observeValues { [weak self](params) in
                 if let strongSelf = self, let rootViewModel = params[0] as? BBViewModel {
-                    let navigationController = UINavigationController(rootViewController: strongSelf.router.viewControllerFor(viewModel: rootViewModel))
                     strongSelf.navigationControllers.removeAll()
-                    strongSelf.push(navigationController: navigationController)
-                    UIApplication.shared.delegate?.window??.rootViewController = navigationController
+                    let viewController = strongSelf.router.viewControllerFor(viewModel: rootViewModel)
+                    if !viewController.isKind(of: BBTabBarViewController.classForCoder()) {
+                        strongSelf.push(navigationController: UINavigationController(rootViewController: viewController))
+                    }
+                    
+                    UIApplication.shared.delegate?.window??.rootViewController = viewController
                 }
         }
         
