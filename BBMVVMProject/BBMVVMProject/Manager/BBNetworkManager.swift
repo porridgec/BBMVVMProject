@@ -61,10 +61,23 @@ enum BBNetworkApiType: TargetType {
     var parameterEncoding: ParameterEncoding {
         return URLEncoding.default
     }
+    var needAccessToken: Bool {
+        switch self {
+        case .searchMusic(_):
+            return true
+        }
+    }
 }
 
 struct BBNetworkManager {
-    static let provider = MoyaProvider<BBNetworkApiType>()
+    static let provider = MoyaProvider<BBNetworkApiType>(endpointClosure: { (target: BBNetworkApiType) -> Endpoint<BBNetworkApiType> in
+        let defaultEndpoint = MoyaProvider.defaultEndpointMapping(for: target)
+        if target.needAccessToken == true {
+            return defaultEndpoint.adding(newHTTPHeaderFields: ["token":"accessToken"])
+        } else {
+            return defaultEndpoint
+        }
+    })
     
     static func searchMusic(keyword: String) -> SignalProducer<String, MoyaError> {
         return request(target: .searchMusic(keyword: keyword)).flatMap(.latest, transform: { (data: JSON) -> SignalProducer<String, MoyaError> in
