@@ -12,5 +12,6 @@ target 'BBMVVMProject' do
   pod 'Moya', '8.0.1'
   pod 'Moya/ReactiveSwift'
   pod 'SwiftyJSON', '3.1.4'
+  pod 'ObjectMapper', '2.2.2'
 
 end
