@@ -10,6 +10,7 @@ import UIKit
 import ReactiveCocoa
 import ReactiveSwift
 import Result
+import Moya
 
 class BBViewModel: NSObject {
     
@@ -44,7 +45,7 @@ class BBViewModel: NSObject {
         hotSignalObserver.send(value: 1313)
     }
     
-    func search() -> SignalProducer<String, NoError> {
+    func search() -> SignalProducer<String, MoyaError> {
         return BBNetworkManager.searchMusic(keyword: "numb")
     }
     

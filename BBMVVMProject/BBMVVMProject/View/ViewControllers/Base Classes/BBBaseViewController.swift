@@ -66,12 +66,12 @@ class BBBaseViewController: UIViewController {
         view.addSubview(bbutton)
         bbutton.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
             if let strongSelf = self {
-                strongSelf.viewModel.hotSignal.observeValues({ (value) in
-                    print("hot signal \(value) observed")
-                })
                 strongSelf.viewModel.sendHotSignal()
             }
         }
+        viewModel.hotSignal.observeValues({ (value) in
+            print("hot signal \(value) observed")
+        })
         
         let sbutton: UIButton = UIButton(type: .system)
         sbutton.frame = CGRect(x: 100, y: 500, width: 200, height: 50)
@@ -80,9 +80,11 @@ class BBBaseViewController: UIViewController {
         view.addSubview(sbutton)
         sbutton.reactive.controlEvents(.touchUpInside).observeValues { [weak self](button) in
             if let strongSelf = self {
-                strongSelf.viewModel.search().start(Observer<String, NoError>.init(value: { (value) in
+                strongSelf.viewModel.search().start(Observer<String, MoyaError>.init(value: { (value) in
                     print(value)
-                }, failed: nil, completed: nil, interrupted: nil))
+                }, failed: { error in
+                    print("error occured \(error)")
+                }, completed: nil, interrupted: nil))
             }
         }
     }

@@ -13,6 +13,11 @@ import ReactiveSwift
 import SwiftyJSON
 import Result
 
+enum BBNetworkRetCode: Int {
+    case error = 0
+    case normal = 1
+}
+
 enum BBNetworkApiType: TargetType {
     case searchMusic(keyword: String)
     
@@ -61,20 +66,32 @@ enum BBNetworkApiType: TargetType {
 struct BBNetworkManager {
     static let provider = MoyaProvider<BBNetworkApiType>()
     
-    static func searchMusic(keyword: String) -> SignalProducer<String, NoError> {
-        return SignalProducer<String, NoError>.init({ (observer, disposable) in
-            provider.request(.searchMusic(keyword: keyword), completion: { (result) in
-                switch result {
-                case .success(let response):
-                    observer.send(value: try! response.mapString())
-                    break
-                case .failure(let _):
-                    break
-                }
+    static func searchMusic(keyword: String) -> SignalProducer<String, MoyaError> {
+        return request(target: .searchMusic(keyword: keyword)).flatMap(.latest, transform: { (data: JSON) -> SignalProducer<String, MoyaError> in
+            return SignalProducer<String, MoyaError>.init({ (observer, disposable) in
+                observer.send(value: data.rawString()!)
             })
-        }).flatMap(.latest, transform: { (value) -> SignalProducer<String, NoError> in
-            return SignalProducer<String, NoError>.init({ (observer, disposable) in
-                
+        })
+    }
+    
+    static func request(target: BBNetworkApiType) -> SignalProducer<JSON, MoyaError> {
+        return SignalProducer<JSON, MoyaError>.init({ (observer, disposable) in
+            provider.request(target, completion: { (result) in
+                switch result {
+                case .success(let value):
+                    //more specific operations
+                    let json = JSON.init(data: value.data)
+                    
+                    guard json["ret"].intValue == BBNetworkRetCode.normal.rawValue else {
+                        observer.send(error: MoyaError.stringMapping(value))
+                        return
+                    }
+                    
+                    observer.send(value: json["data"])
+                    observer.sendCompleted()
+                case .failure(let error):
+                    observer.send(error: error)
+                }
             })
         })
     }
